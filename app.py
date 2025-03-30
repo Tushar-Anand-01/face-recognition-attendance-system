@@ -7,13 +7,12 @@ import os
 from datetime import datetime
 
 app = Flask(__name__)
-cap = None  # Webcam capture object
+cap = None  
 
-# Load known face encodings
 with open("encodings.pickle", "rb") as f:
     known_encodings, known_names = pickle.load(f)
 
-# Ensure attendance file exists
+
 ATTENDANCE_FILE = "attendance.csv"
 if not os.path.exists(ATTENDANCE_FILE):
     with open(ATTENDANCE_FILE, "w", newline="") as f:
